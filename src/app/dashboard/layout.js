@@ -21,16 +21,16 @@ import AlertTitle from "@mui/material/AlertTitle";
 import { Didact_Gothic } from "next/font/google";
 
 //ICONS
-import MenuIcon from "@mui/icons-material/Menu"
+import MenuIcon from "@mui/icons-material/Menu";
 import PeopleIcon from "@mui/icons-material/People";
 import BadgeIcon from "@mui/icons-material/Badge";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import InventoryIcon from "@mui/icons-material/Inventory";;
+import InventoryIcon from "@mui/icons-material/Inventory";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 //COMPONENTS
-import ProtectedPage from '../../components/auth';
+import ProtectedPage from "../../components/auth";
 
 const drawerWidth = 240;
 const gothic = Didact_Gothic({ subsets: ["latin"], weight: "400" });
@@ -178,7 +178,7 @@ function ResponsiveDrawer({ children }, props) {
               style={{
                 textDecoration: "none",
                 color: "black",
-                fontWeight: "bold"
+                fontWeight: "bold",
               }}
             >
               <ListItemButton>
@@ -193,7 +193,6 @@ function ResponsiveDrawer({ children }, props) {
   );
 
   React.useEffect(() => {
-    
     socket.emit("inicio", 1); // Emmit id for user signed in app
 
     return () => {
@@ -211,117 +210,126 @@ function ResponsiveDrawer({ children }, props) {
 
   return (
     <ProtectedPage>
-        <Box sx={{ display: "flex" }} fontStyle={gothic}>
+      <Box sx={{ display: "flex" }} fontStyle={gothic}>
         <CssBaseline />
         <AppBar
-            position="fixed"
-            sx={{
+          position="fixed"
+          sx={{
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             ml: { sm: `${drawerWidth}px` },
             display: { sm: "none" },
-            }}
-            style={{
+          }}
+          style={{
             background: "rgb(0,152,158)",
             background:
-                "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
-            }}
+              "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
+          }}
         >
-            <Grid></Grid>
-            <Toolbar>
+          <Grid></Grid>
+          <Toolbar>
             <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
             >
-                <MenuIcon />
+              <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div"></Typography>
-            </Toolbar>
+          </Toolbar>
         </AppBar>
         <Box
-            component="nav"
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-            aria-label="mailbox folders"
+          component="nav"
+          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+          aria-label="mailbox folders"
         >
-            <Drawer
+          <Drawer
             container={container}
             variant="temporary"
             open={mobileOpen}
             onTransitionEnd={handleDrawerTransitionEnd}
             onClose={handleDrawerClose}
             ModalProps={{
-                keepMounted: true, // Better open performance on mobile.
+              keepMounted: true, // Better open performance on mobile.
             }}
             sx={{
-                display: { xs: "block", sm: "none" },
-                "& .MuiDrawer-paper": {
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
                 background: "rgb(0,152,158)",
                 background:
-                    "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
+                  "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
                 border: "none",
-                },
+              },
             }}
-            >
+          >
             {drawer}
-            </Drawer>
+          </Drawer>
 
-            <Drawer
+          <Drawer
             variant="permanent"
             sx={{
-                display: { xs: "none", sm: "block" },
-                "& .MuiDrawer-paper": {
+              display: { xs: "none", sm: "block" },
+              "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
                 background: "rgb(0,152,158)",
                 background:
-                    "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
+                  "linear-gradient(159deg, rgba(0,152,158,1) 0%, rgba(255,255,255,1) 100%)",
                 border: "none",
-                },
+              },
             }}
             open
-            >
+          >
             {drawer}
-            </Drawer>
+          </Drawer>
         </Box>
         <Grid
-            container
-            alignItems={"start"}
-            justifyContent={"center"}
-            style={{
+          container
+          alignItems={"start"}
+          justifyContent={"center"}
+          style={{
             width: "100vw",
             height: "100vh",
-            }}
+          }}
         >
-            <Grid
+          <Grid
             container
             item
             alignItems={"center"}
             justifyContent={"center"}
             p={2}
+          >
+            <Grid
+              container
+              item
+              justifyContent={"center"}
+              alignItems={"center"}
+              gap={1}
+              style={{ marginTop: "50px" }}
             >
-            {count > 0 && (
+              {count > 0 && (
                 <Alert severity="info">
-                <AlertTitle>
-                    Se han generado {count} cotizaciones que aún están pendientes de
-                    revisión en su bandeja de entrada.
-                </AlertTitle>
+                  <AlertTitle>
+                    Se han generado {count} cotizaciones que aún están
+                    pendientes de revisión en su bandeja de entrada.
+                  </AlertTitle>
                 </Alert>
-            )}
-            <Button
+              )}
+              <Button
                 onClick={handleRequestQuoteShipment}
                 variant="contained"
                 endIcon={<AddCircleIcon />}
-            >
+              >
                 Solicitar Cotizacion
-            </Button>
+              </Button>
             </Grid>
-            {children}
+          </Grid>
+          {children}
         </Grid>
-        </Box>
+      </Box>
     </ProtectedPage>
   );
 }
