@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,27 +11,25 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Button, Divider, Grid } from "@mui/material";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
+// FONTS
+import { Didact_Gothic } from "next/font/google";
+
+//ICONS
+import MenuIcon from "@mui/icons-material/Menu"
 import PeopleIcon from "@mui/icons-material/People";
 import BadgeIcon from "@mui/icons-material/Badge";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import InventoryIcon from "@mui/icons-material/Inventory";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import AnalyticsIcon from "@mui/icons-material/Analytics";
-import { Didact_Gothic } from "next/font/google";
-import TodayIcon from "@mui/icons-material/Today";
-
+import InventoryIcon from "@mui/icons-material/Inventory";;
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Stack from "@mui/material/Stack";
-
+//COMPONENTS
 import ProtectedPage from '../../components/auth';
 
 const drawerWidth = 240;
@@ -153,15 +150,12 @@ function ResponsiveDrawer({ children }, props) {
 
   const drawer = (
     <div style={{ marginTop: "20px" }}>
-      {/* {!mobileOpen && ( */}
       <Grid
         container
         justifyContent={"center"}
         alignItems={"center"}
         marginBottom={"20px"}
       >
-        {/* <Toolbar />
-          <Divider /> */}
         <img
           style={{
             objectFit: "cover",
@@ -169,7 +163,6 @@ function ResponsiveDrawer({ children }, props) {
             margin: "10px",
           }}
           width={200}
-          // height={"100%"}
           src="https://s3.us-east-2.amazonaws.com/enviapaqueteria/uploads/landing/images/countries/MEX/logo-dark.svg"
           alt="Logo Envia"
         />
@@ -252,7 +245,6 @@ function ResponsiveDrawer({ children }, props) {
             sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
             aria-label="mailbox folders"
         >
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
             <Drawer
             container={container}
             variant="temporary"

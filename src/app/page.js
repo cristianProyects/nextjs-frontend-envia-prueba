@@ -66,13 +66,10 @@ export default function Home() {
     >
       <Grid
         boxShadow={"rgb(38, 57, 77) 0px 20px 30px -10px"}
-        // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
         borderRadius={3}
         overflow={"hidden"}
         width={350}
       >
-        {/* sx = pantallas pequeñas y se definen las columnas a ocupar, maximo 12 */}
-        {/* md = pantallas grandes y se definen las columnas a ocupar, maximo 12 */}
         <Grid container item alignItems={"center"} justifyContent={"center"}>
           <img
             style={{
@@ -81,7 +78,6 @@ export default function Home() {
               width: "auto",
               height: "50px",
             }}
-            // width={320}
             src="https://s3.us-east-2.amazonaws.com/enviapaqueteria/uploads/landing/images/countries/MEX/logo-dark.svg"
             alt="Logo Ecommerce"
           />
